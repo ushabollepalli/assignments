@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form id="myform" onsubmit="clearsss()">
+
+  First Name:<input type="text" id="fname" oninput="myFunction1()" name="fname" required></br></br>
+  
+  Last Name:<input type="text" id="lname" oninput="myFunction2()" name="lname" required></br></br>
+  
+  Address:</br><textarea name="address"  id="address" oninput="myFunction3()" rows="10" cols="10" required></textarea></br>
+  
+  Mobile:<input type="text" id="mobile" oninput="myFunction4()" name="mobile" required></br></br>
+  
+  E-mail:<input type="email" id="email" oninput="myFunction5()" name="email" required></br></br>
+  
+ 
+  
+  <input type="submit"  value="submit">
+</form>
+
+<script>
+function myFunction1() {
+  
+  var x = document.getElementById("fname").value; 
+  localStorage.setItem("name",x);
+}
+function myFunction2() {
+  
+  var x = document.getElementById("lname").value; 
+  localStorage.setItem("last name",x);
+}
+function myFunction3() {
+  
+  var x = document.getElementById("address").value; 
+  localStorage.setItem("address",x);
+}
+function myFunction4() {
+  
+  var x = document.getElementById("mobile").value; 
+  localStorage.setItem("mobile",x);
+}
+function myFunction5() {
+  
+  var x = document.getElementById("email").value; 
+  localStorage.setItem("email",x);
+}
+function clearsss(){
+localStorage.clear();
+
+}
+document.getElementById("fname").value=localStorage.getItem("name");
+document.getElementById("lname").value=localStorage.getItem("last name");
+document.getElementById("address").value=localStorage.getItem("address");
+document.getElementById("mobile").value=localStorage.getItem("mobile");
+document.getElementById("email").value=localStorage.getItem("email");
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+	
+	

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<script>
+class Car {
+  constructor(brand) {
+    this._carname = brand;
+  }
+  set carname(x) {
+    this._carname = x;
+  }
+  get carname() {
+    return this._carname;
+  }
+}
+
+let myCar = new Car("Ford");
+myCar.carname = "Volvo";
+document.write(myCar.carname);
+</script>
+
+</body>
+</html>

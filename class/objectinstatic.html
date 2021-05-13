@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<script>
+class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello(x) {
+    return "Hello " + x.name;
+  }
+}
+
+let myCar = new Car("Ford");
+document.write(Car.hello(myCar));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+
+var student=[
+{name:"usha",age:89},
+{name:"lavanya",age:54},
+{name:"arun",age:34},];
+
+var x={
+name:"ravi",
+age:67};
+
+//student.unshift(x);
+//student.push(x);
+ 
+//student.splice(1,0,x); 
+
+student[0].nationality="eng";
+
+student[0].total=function(){
+return this.name+" "+this.age;};
+
+student[0].total();
+</script>
+</body>
+</html>

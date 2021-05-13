@@ -1,0 +1,57 @@
+body {
+    background-image: url("ice-cream.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+  }
+  h1{
+      position: fixed;
+      font-size: 80px;
+      padding: 100px 400px;
+      
+      text-align: center;
+      font-family: "sofia";
+      font-style: italic;
+      text-shadow: 2px 2px 5px red;
+  }
+  ul {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+    overflow: hidden;
+    background-color:skyblue;
+  }
+  
+  li {
+   display:inline;
+   
+  }
+  
+  li a {
+    
+    color: white;
+font-size: 20px;
+    padding: 20px 50px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: pink;
+  }
+  
+  .button {
+    background-color: pink;
+    border: none;
+    color: white;
+    padding: 15px 100px;
+    text-align: top;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 50px 500px;
+    
+  }
+  
+  
