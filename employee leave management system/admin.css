@@ -1,0 +1,73 @@
+.notificationpage {
+      border: 2px solid green;
+      /* padding: 10px; */
+      position: absolute;
+      display:none;
+      left: 100px;
+      top: 20px;
+      background-color: white;
+    }
+.mainscreen {
+     background-color: white;
+    }
+.acceptscreen {
+      border: 2px solid green;
+      padding: 10px;
+      position: absolute;
+      display:none;
+      left: 100px;
+      top: 20px;
+      background-color: white;
+	  cursor:pointer;
+    }	
+	.acceptclose {
+color: black;
+width:10px;
+float:right;
+font-size: 28px;
+transform: rotate(45deg);
+cursor: pointer;
+font-weight: bolder;
+}
+.noteclose {
+color: black;
+width:10px;
+float:right;
+font-size: 28px;
+transform: rotate(45deg);
+cursor: pointer;
+font-weight: bolder;
+}
+#screenbutton{
+	background-color:green;
+	padding-bottom:5px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:5px;
+	color:white;
+	border:0;
+	font-weight: bolder;
+	cursor: pointer;
+}
+.notificationpage>div:hover{
+	cursor:pointer;
+}
+.loop:hover{
+	background-color:green;
+	color:white;
+}
+/*#accept:hover{
+	background-color:lightgreen;
+}
+#delete:hover{
+	background-color:red;
+}*/
+
+
+div#notification>div {
+    padding: 0 10px;
+}
+
+
+
+

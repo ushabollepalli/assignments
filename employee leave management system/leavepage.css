@@ -1,0 +1,116 @@
+.container {
+      display: grid;
+      grid-template-rows: repeat(2, 200px);
+      grid-template-columns: repeat(3, 250px);
+	  grid-row-gap:30px;
+      grid-column-gap:50px;
+    }
+
+    .container>div {
+      border: 1px solid gray;
+	  padding:5px;
+    }
+
+    .leaveapply {
+      border: 2px solid green;
+      padding: 10px;
+      position: absolute;
+	  display:none;
+      left: 100px;
+      top: 20px;
+      background-color: white;
+    }
+
+    .leavepage {
+      background-color: white;
+    }
+	.close {
+color: black;
+position: absolute;
+top: 0;
+right: 10px;
+font-size: 28px;
+transform: rotate(45deg);
+cursor: pointer;
+font-weight: bolder;
+}
+
+#message1,#requestmessage1,#requestmessage2,#message2,#message3{
+display:none;
+}
+
+.navbar { 
+  background-color:royalblue; 
+  display: flex; 
+  list-style-type: none;
+  margin-bottom:15px;
+  margin-top:0px;
+  padding: 15px;
+ 
+     
+}
+
+.navbar > li {  
+  flex: 1;  
+}
+
+
+li a{
+color: white;
+font-size: 20px;
+text-decoration: none;
+}
+
+#search{
+border:0;
+padding:7px 20px;
+border-radius:5px;
+}
+#holidaylist,#optionallist,#apply{
+	color:royalblue;
+	padding:7px;
+	font-weight:bold;
+	background-color:white;
+	border:1px solid gray;
+}
+#apply{
+	background-color:royalblue;
+	color:white;
+	border:0;
+	cursor: pointer;
+}
+#today{
+	font-weight: bolder;
+	font-size:20px;
+}
+
+.notificationpage {
+      border: 2px solid green;
+      padding: 10px;
+      position: absolute;
+      display:none;
+      left: 100px;
+      top: 20px;
+      background-color: white;
+    }
+.noteclose {
+color: black;
+position: absolute;
+top: 0;
+right: 10px;
+font-size: 28px;
+transform: rotate(45deg);
+cursor: pointer;
+font-weight: bolder;
+}
+#pending{
+	background-color:orange;
+	border:1px solid orange;
+	display:inline-block;
+	margin-top:2px;
+	padding-left:3px;
+	padding-bottom:2px;
+	padding-right:3px;
+	border-radius:10px;
+	cursor:pointer;
+}
