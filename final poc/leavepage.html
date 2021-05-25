@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="leavepage.css">
+  <script defer src="leavepage.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar">
+	<div>
+	<img class="icon" src="logo.jpg" >
+	</div>
+	  <a class="listitem">Our Services</a>
+	  <a class="listitem">About Us</a>	
+	  <a class="listitem">Contact</a>
+	  <a class="listitem logo">UB</a>
+	  <a class="listitem" href="loginpage.html">Log Out</a>
+	</nav>
+  <div class="leaveapply" id="leaveapply">
+    <div id='close' class="close">+</div>
+    <h3>Apply for a Leave</h3><br>
+    <p>Recipients</p>
+    <p>D S Vasudevan Dandey(736)</p>
+    <form id="myform">
+      <label for="leave">Select leave type</label>
+      <select id="leave" name="cars">
+        <option value="Selectleavetype">Select leave type</option>
+        <option value="Bereavement Leave">Bereavement Leave</option>
+        <option value="Casual_SickLeave">Casual/Sick Leave</option>
+        <option value="CompensatoryOff">Compensatory Off</option>
+        <option value="EarnedLeave">Earned Leave</option>
+        <option value="Maternity illness">Maternity illness</option>
+        <option value="Maternity Leave">Maternity Leave</option>
+        <option value="OptionalHoliday">Optional Holiday</option>
+        <option value="Unpaid">Unpaid</option>
+      </select>
+      <label for="startdate">From</label>
+      <input type="date" id="startdate" name="start date">
+      <label for="enddate">To</label>
+      <input type="date" id="enddate" name="End date"><br><br>
+      <div id="message1">
+          You are not able to apply this type of leave, Please contact manager.
+      </div>
+      <div id="message2">
+        You already requested the complete available leaves.
+      </div>
+      <div id="message3">
+        Requested leaves are not available.
+      </div>
+      
+      <input type="button" id="applybutton" value="Apply" disabled>
+
+    </form>
+
+  </div>
+
+
+  <div class="leavepage" id="leavepage">
+
+
+    <div id="alignment">
+    <button type="button" id="holidaylist">LIST OF HOLIDAYS</button>
+    <button type="button" id="optionallist">OPTIONAL HOLIDAY</button>
+    <button type="button" id="apply">APPLY</button>
+	</div>
+    <p id="today">Your Leave Balance as of</p>
+
+    <p id="pending">pending requests(<span id="demo"></span>)</p>
+    <div id="requestmessage1">
+      
+      Your Request Accepted
+    </div>
+    <div id="requestmessage2">
+      
+      Your Request deleted
+    </div>
+    <div class="container">
+      <div class="item item11">
+        <p>Casual/Sick Leave</p>
+		<div class="align">
+        <p id="Casual_SickLeave">4</p>
+		<p class="space">Currently Available</p>
+		</div>
+        <hr style="width:80%">
+        <p><span>4&emsp;&emsp;&emsp;</span>Accrued so far this year</p>
+        <p><span>0&emsp;&emsp;&emsp;</span>Credited from last year</p>
+        <p><span>12&emsp;&emsp;&emsp;</span>Annual Allotment</p>
+      </div>
+      <div class="item item22">
+        <p>Earned Leave</p>
+		<div class="align">
+        <p id="EarnedLeave">4</p>
+		<p class="space">Currently Available</p>
+		</div>
+        <hr style="width:80%">
+        <p><span>4&emsp;&emsp;&emsp;</span>Accrued so far this year</p>
+        <p><span>0&emsp;&emsp;&emsp;</span>Credited from last year</p>
+        <p><span>12&emsp;&emsp;&emsp;</span>Annual Allotment</p>
+      </div>
+      <div class="item item33">
+        <p>Optional Holiday</p>
+		<div class="align">
+        <p id="OptionalHoliday">1</p>
+		<p class="space">Currently Available</p>
+		</div>
+        <hr style="width:80%">
+        <p><span>1&emsp;&emsp;&emsp;</span>Accrued so far this year</p>
+        <p><span>0&emsp;&emsp;&emsp;</span>Credited from last year</p>
+        <p><span>1&emsp;&emsp;&emsp;</span>Annual Allotment</p>
+      </div>
+      <div class="item item44">
+        <p>Unpaid</p>
+        <p><span>0&emsp;&emsp;&emsp;</span>Already Taken</p>
+        <p><span>0&emsp;&emsp;&emsp;</span>Applied</p>
+        <p><span>0&emsp;&emsp;&emsp;</span>System Deducted</p>
+      </div>
+      <div class="item item55">
+        <p>Comp-Off</p>
+		<div class="align">
+        <p id="CompensatoryOff">1</p>
+		<p class="space">available</p>
+		</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="notificationpage" id="notification">
+    <div id="notificationclose" class="noteclose">+</div>
+    <p>NOTIFICATIONS</p>
+  </div>
+</body>
+
+</html>

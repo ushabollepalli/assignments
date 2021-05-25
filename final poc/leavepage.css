@@ -1,0 +1,135 @@
+.container {
+      display: grid;
+      grid-template-rows: repeat(2, 200px);
+      grid-template-columns: repeat(3, 250px);
+	  grid-row-gap:30px;
+      grid-column-gap:50px;
+    }
+
+    .container>div {
+      border: 1px solid gray;
+	  padding:5px;
+    }
+
+    .leaveapply {
+      border: 2px solid green;
+      padding: 10px;
+      position: absolute;
+	  display:none;
+      left: 350px;
+	  right:350px;
+      top: 100px;
+      background-color: white;
+    }
+
+    .leavepage {
+      background-color: white;
+    }
+	.close {
+color: black;
+position: absolute;
+top: 0;
+right: 10px;
+font-size: 28px;
+transform: rotate(45deg);
+cursor: pointer;
+font-weight: bolder;
+}
+
+#message1,#requestmessage1,#requestmessage2,#message2,#message3{
+display:none;
+color:red;
+}
+
+.navbar{
+background-color:royalblue;
+color:white;
+display:flex;
+justify-content:space-around;
+align-items:center;
+font-size:20px;
+height:60px;
+}
+ .listitem{
+display:inline-block;
+padding:10px 10px;
+color:white;
+text-decoration:none;
+}
+.navbar a:hover{
+color:aqua;
+cursor:pointer;
+}
+.icon{
+height:80px;
+cursor:pointer;
+}
+.logo{
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: blue;
+  font-weight: bolder;
+  text-align: center;
+  background: lightgrey;
+}
+#holidaylist,#optionallist,#apply{
+	color:royalblue;
+	padding:7px;
+	font-weight:bold;
+	background-color:white;
+	border:1px solid gray;
+}
+#apply{
+	background-color:royalblue;
+	color:white;
+	border:0;
+	cursor: pointer;
+}
+#today{
+	font-weight: bolder;
+	font-size:20px;
+}
+
+.notificationpage {
+      border: 2px solid green;
+      padding: 10px;
+      position: absolute;
+      display:none;
+      left: 150px;
+      top: 100px;
+      background-color: white;
+    }
+.noteclose {
+color: black;
+position: absolute;
+top: 0;
+right: 10px;
+font-size: 28px;
+transform: rotate(45deg);
+cursor: pointer;
+font-weight: bolder;
+}
+#pending{
+	background-color:orange;
+	border:1px solid orange;
+	display:inline-block;
+	margin-top:2px;
+	padding-left:3px;
+	padding-bottom:2px;
+	padding-right:3px;
+	border-radius:10px;
+	cursor:pointer;
+}
+#alignment{
+	text-align:right;
+	margin-top:10px;
+}
+.align>p{
+	display:inline;
+}
+.space{
+	padding-left:40px;
+}
