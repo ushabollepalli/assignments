@@ -1,94 +1,147 @@
-/*document.getElementById("notificationclose").addEventListener('click', function(){
-    document.querySelector(".notificationpage").style.display = 'none';
-    document.getElementById("mainpage").style.opacity = "1";
+document.getElementById("notificationclose").addEventListener('click', function () {
+	document.querySelector(".notificationpage").style.display = 'none';
+	document.getElementById("acceptpage").style.display = "none";
+	document.getElementById("card").style.opacity = "1";
 });
 
-document.getElementById("acceptclose").addEventListener('click', function(){
-    document.querySelector(".acceptscreen").style.display = 'none';
-   
-});
 
-if(localStorage.getItem("data")){
-var leavedata=JSON.parse(localStorage.getItem("data"));
-//console.log(leavedata);
-for(var i=0;i<leavedata.length;i++){
-	var para1=document.createElement("p");
-	var node1=document.createTextNode(leavedata[i].leavetype);
-	para1.appendChild(node1);
-	document.getElementById("notification").appendChild(para1);	
-	var para2=document.createElement("span");
-	var node2=document.createTextNode(leavedata[i].leavecount);	
-	para2.appendChild(node2);
-	document.getElementById("notification").appendChild(para2);
-}
-}
 
-var x=document.getElementById("notification");
-for(var i=2;i<x.childElementCount;i++){
-(x.children[i]).addEventListener("click", function(e){
-    
-    document.getElementById("acceptpage").style.display = "block";
-	e.stopPropagation();
-	var leavetype=this.textContent;
-	
-	var outernode=this;
 
-	document.getElementById("accept").onclick=function(ev){
-	
-	
-	
-	var change=(localStorage.getItem("available"+leavetype)-0)-(localStorage.getItem("leavecount"+leavetype)-0);
-	localStorage.setItem("available"+leavetype, change);
-	var countchange=(localStorage.getItem("Count")-0)-1;
-	localStorage.setItem("Count", countchange);
-	var obj = (element) =>( element.leavetype == leavetype);
-    var index=leavedata.findIndex(obj);
-	
-    leavedata.splice(index,1);
-	
-	localStorage.setItem("data",JSON.stringify(leavedata));
-	
-	localStorage.setItem("requestaccept",1);
-	document.getElementById("acceptpage").style.display = "none";
-	
-	ev.stopPropagation();
-	outernode.outerHTML="";
-	
-	
-}
+var currentuser;
+var information=JSON.parse((localStorage.getItem("employees")));
+    information.some( function(user){
+	if(user.login==true){
+		currentuser=user.data;
+		return true;
+	} 
+}	
+	)
 
-}
-
-);
-
-}
-
- var y = document.getElementById("screenbutton");
-    y.addEventListener("click", myfunction1);
-    function myfunction1() {
-      document.getElementById("notification").style.display = "block";
-      document.getElementById("mainpage").style.opacity = "0.1";
-    }*/
-
-/*document.getElementById("accept").addEventListener("click",function(ev){
-	var leavetypedata=JSON.parse(localStorage.getItem("leavetype"));
-	for(i=0;i<leavetypedata.length;i++){
-	if(leavetypedata[i]==this.){
-	var change=(localStorage.getItem("available"+leavetypedata[i])-0)-(localStorage.getItem("leavecount"+leavetypedata[i])-0);
-	localStorage.setItem("available"+leavetypedata[i], change);
+	
+	
+if (currentuser["leavedata"]) {
+	var leavedata = currentuser["leavedata"];
+	if (leavedata.length) {
+		document.getElementById("screenbutton").style.backgroundColor = "red";
 	}
+	for (var i = 0; i < leavedata.length; i++) {
+		var di = document.createElement("div");
+		document.getElementById("notification").appendChild(di);
+		di.setAttribute("class", "loop");
+		di.setAttribute("id", "loop" + i);
+		var para1 = document.createElement("span");
+		var node1 = document.createTextNode(leavedata[i].leavetype);
+		para1.appendChild(node1);
+		document.getElementById("loop" + i).appendChild(para1);
+		var para4 = document.createElement("span");
+		var node4 = document.createTextNode(" "+":"+" ");
+		para4.appendChild(node4);
+		document.getElementById("loop" + i).appendChild(para4);
+		var para2 = document.createElement("span");
+		var node2 = document.createTextNode(leavedata[i].leavecount);
+		para2.appendChild(node2);
+		document.getElementById("loop" + i).appendChild(para2);
+		var para3 = document.createElement("p");
+		var node3 = document.createTextNode(leavedata[i].startdate + " To " + leavedata[i].enddate);
+		para3.appendChild(node3);
+		document.getElementById("loop" + i).appendChild(para3);
+
 	}
-	//var change=(localStorage.getItem("available"+leavetypedata)-0)-(localStorage.getItem("leavecount"+leavetypedata)-0);
-	//localStorage.setItem("available"+leavetypedata, change);
-	//var zero=0;
-	//localStorage.setItem("leavecount"+leavetypedata,zero);
-	var countchange=(localStorage.getItem("Count")-0)-1;
-	localStorage.setItem("Count", countchange);
-	//localStorage.removeItem("data");
-	
-	document.getElementById("acceptpage").style.display = "none";
-	//console.log(1);
-	ev.stopPropagation();
 }
-);*/
+
+var notificationarray = [];
+
+if (currentuser["leavehistory"]) {
+	notificationarray = currentuser["leavehistory"];
+}
+
+var x = document.getElementById("notification");
+for (var i = 3; i < x.childElementCount; i++) {
+	(x.children[i]).addEventListener("click", function (e) {
+       
+		document.getElementById("acceptpage").style.display = "block";
+		e.stopPropagation();
+		var leavetype = this.textContent;
+		var outernode = this;
+		var inner1 = outernode.children[0].textContent;
+		var inner2 = outernode.children[2].textContent;
+		document.getElementById("accept").onclick = function (ev1) {
+			
+			if(currentuser["leavesof"+inner1]){
+				currentuser["leavesof"+inner1]=(currentuser["leavesof"+inner1]-0)+((inner2)-0);
+			}
+			else{
+				currentuser["leavesof"+inner1]=inner2;
+			}
+			
+			var countchange = (currentuser["Count"] - 0) - 1;
+			currentuser["Count"]= countchange;
+			
+			var obj = (element) => (element.leavetype == inner1 && element.leavecount == inner2);
+
+			var index = leavedata.findIndex(obj);
+			
+			notificationarray.push({
+				"leavetype": leavedata[index].leavetype,
+				"leavecount": leavedata[index].leavecount,
+				"startdate": leavedata[index].startdate,
+				"enddate": leavedata[index].enddate,
+				"status": "ACCEPT",
+			})
+			
+			currentuser["leavehistory"]=notificationarray;
+			localStorage.setItem("employees",JSON.stringify(information));
+			leavedata.splice(index, 1);
+			
+			currentuser["leavedata"]=leavedata;
+			
+			var get = currentuser["leavecount" + inner1] - 0;
+			var set = get - (inner2);
+			currentuser["leavecount" + inner1]= set;
+			localStorage.setItem("employees",JSON.stringify(information));
+			document.getElementById("acceptpage").style.display = "none";
+			document.getElementById("acceptpage").style.display = "none";
+			ev1.stopPropagation();
+			outernode.outerHTML = "";
+		}
+		document.getElementById("delete").onclick = function (ev2) {
+			var countchange = (currentuser["Count"] - 0) - 1;
+			currentuser["Count"]= countchange;
+			var obj = (element) => (element.leavetype == inner1 && element.leavecount == inner2);
+			var index = leavedata.findIndex(obj);
+			notificationarray.push({
+				"leavetype": leavedata[index].leavetype,
+				"leavecount": leavedata[index].leavecount,
+				"startdate": leavedata[index].startdate,
+				"enddate": leavedata[index].enddate,
+				"status": "DELETE",
+			})
+			
+			currentuser["leavehistory"]=notificationarray;
+			localStorage.setItem("employees",JSON.stringify(information));
+			leavedata.splice(index, 1);
+			
+			currentuser["leavedata"]=leavedata;
+			
+			var get = currentuser["leavecount" + inner1] - 0;
+			var set = get - (inner2);
+			currentuser["leavecount" + inner1]= set;
+			localStorage.setItem("employees",JSON.stringify(information));
+			document.getElementById("acceptpage").style.display = "none";
+			document.getElementById("acceptpage").style.display = "none";
+			ev2.stopPropagation();
+			outernode.outerHTML = "";
+		}
+	}
+	);
+}
+
+var y = document.getElementById("screenbutton");
+y.addEventListener("click", myfunction1);
+function myfunction1() {
+	document.getElementById("notification").style.display = "block";
+	document.getElementById("card").style.opacity = "0.1";
+}
+
+
 

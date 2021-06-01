@@ -1,79 +1,87 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-.container{
-margin:60px;
-display:grid;
-grid-template-rows:repeat(2,200px);           
-grid-template-columns:repeat(4,200px); 
-grid-row-gap:60px;
-grid-column-gap:100px;
-justify-content: space-evenly;
-}
+  <style>
+    .container {
+      margin: 60px;
+      display: grid;
+      grid-template-rows: repeat(2, 200px);
+      grid-template-columns: repeat(4, 200px);
+      grid-row-gap: 60px;
+      grid-column-gap: 100px;
+      justify-content: space-evenly;
+    }
 
-.container > div {
-border:1px solid black;
-border-radius: 25px;
-}
-
-
-.item{
-text-align:center;
-padding:70px;
-font-size: 20px;
-background-color:lightgray;
-}
+    .container>div {
+      border: 1px solid black;
+      border-radius: 25px;
+    }
 
 
+    .item {
+      text-align: center;
+      padding: 70px;
+      font-size: 20px;
+      background-color: lightgray;
+    }
 
 
-.navbar { 
-  background-color:lightgreen; 
-  display: flex; 
-  list-style-type: none;
-  margin: 0;
-  padding: 15px;
- 
-     
-}
-
-.navbar > li {  
-  flex: 1;  
-}
 
 
-li a{
-color: white;
-font-size: 20px;
-text-decoration: none;
-}
+    .navbar {
+      background-color: royalblue;
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 15px;
 
-</style>
+
+    }
+
+    .navbar>li {
+      flex: 1;
+    }
+
+
+    li a {
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    #search {
+      border: 0;
+      padding: 7px 20px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
+
 <body>
 
-<ul class=navbar>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Profile</a></li>
-        <li class="search">
-		    <input type="text" placeholder="Search">
-		</li>
-        <li><a href="#about">Logout</a></li>
-      </ul> 
+  <ul class=navbar>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#menu">Profile</a></li>
+    <li class="search">
+      <input type="text" id="search" placeholder="Search">
+    </li>
+    <li><a href="#about">Logout</a></li>
+  </ul>
 
 
-<div class="container">
-<div class="item item11">Employees</div>
-<div class="item item22">Compensation</div>
-<div class="item item33">Attendance</div>
-<div class="item item44"><a href="leavepage.html">Leave</a></div>
-<div class="item item55">Recognition</div>
-<div class="item item66">Calender</div>
-<div class="item item77">Performance</div>
-<div class="item item88">Helpdesk</div>
+  <div class="container">
+    <div class="item item11">Employees</div>
+    <div class="item item22">Compensation</div>
+    <div class="item item33">Attendance</div>
+    <div class="item item44"><a href="leavepage.html">Leave</a></div>
+    <div class="item item55">Recognition</div>
+    <div class="item item66">Calender</div>
+    <div class="item item77">Performance</div>
+    <div class="item item88">Helpdesk</div>
 
-</div> 
+  </div>
 
 </body>
+
 </html>

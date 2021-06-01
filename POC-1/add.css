@@ -1,0 +1,48 @@
+body{
+    background:url('acs1.jfif') no-repeat;
+    background-size:cover;
+}
+
+.loginform{
+	display:inline-block;
+	background-color:white;
+	margin:50px;
+	padding:30px 40px;
+}
+
+.loginform input{
+	padding:7px 5px;
+	border-radius:5px;
+	border-color:royalblue;
+	
+}
+.loginform input:hover{
+	border:1px solid green;
+}
+
+.loginform button{
+	font-size:20px;
+	font-weight:bold;
+	margin:20px 0;
+	padding:5px 5px;
+	width:50%;
+	border-radius:5px;
+	border:0;
+	color:royalblue;
+	cursor: pointer;
+}
+
+.loginform button:hover{
+	border:1px solid green;
+}
+
+.loginform h1{
+	text-align:center;
+	font-size:20px;
+	margin:20px 0;
+	color:royalblue;
+}
+.loginform p{
+	color:royalblue;
+	font-weight:bold;
+}

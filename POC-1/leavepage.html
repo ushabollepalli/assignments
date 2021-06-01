@@ -2,63 +2,30 @@
 <html>
 
 <head>
-<script defer src="leavepage.js"></script> 
-  <style>
-    .container {
-      display: grid;
-      grid-template-rows: repeat(2, 200px);
-      grid-template-columns: repeat(3, 250px);
-      grid-gap: 30px;
-    }
+  <link rel="stylesheet" href="leavepage.css">
+  <script defer src="leavepage.js"></script>
 
-    .container>div {
-      border: 1px solid black;
-	  padding:5px;
-    }
-
-    .leaveapply {
-      border: 2px solid green;
-      padding: 10px;
-      position: absolute;
-      z-index: -1;
-      left: 100px;
-      top: 20px;
-      background-color: white;
-    }
-
-    .leavepage {
-      background-color: white;
-    }
-	.close {
-color: black;
-position: absolute;
-top: 0;
-right: 10px;
-font-size: 28px;
-transform: rotate(45deg);
-cursor: pointer;
-font-weight: bolder;
-}
-#message,#requestmessage{
-display:none;
-}
-
-  </style>
 </head>
 
 <body>
-  <div class="leaveapply" id="dd">
+  <nav class="navbar">
+    <div>
+      <img class="icon" src="logo.jpg">
+    </div>
+    
+    <a class="listitem" href="loginpage.html">Log Out</a>
+  </nav>
+  <div class="leaveapply" id="leaveapply">
     <div id='close' class="close">+</div>
     <h3>Apply for a Leave</h3><br>
     <p>Recipients</p>
     <p>D S Vasudevan Dandey(736)</p>
-    <p>Add Additional Recipients</p>
     <form id="myform">
       <label for="leave">Select leave type</label>
       <select id="leave" name="cars">
         <option value="Selectleavetype">Select leave type</option>
-        <option value="Bereavement Leave">Bereavement Leave</option>
-        <option value="Casual_SickLeave">Casual/Sick Leave</option>
+        <option value="BereavementLeave">Bereavement Leave</option>
+        <option value="CasualSickLeave">Casual/Sick Leave</option>
         <option value="CompensatoryOff">Compensatory Off</option>
         <option value="EarnedLeave">Earned Leave</option>
         <option value="Maternity illness">Maternity illness</option>
@@ -69,13 +36,20 @@ display:none;
       <label for="startdate">From</label>
       <input type="date" id="startdate" name="start date">
       <label for="enddate">To</label>
-      <input type="date" id="enddate" name="End date"><br>
-	  <div id="message">
-      <p>Message*</p>
-      <textarea name="message" rows="5" cols="60">You are not able to apply this type of leave, Please contact manager.</textarea><br>
-	  </div>
-      <label for="file">Add Attachments: </label>
-      <input type="file" id="file" name="file"><br><br>
+      <input type="date" id="enddate" name="End date"><br><br>
+      <div id="message1">
+        You are not able to apply this type of leave, Please contact manager.
+      </div>
+      <div id="message2">
+        Your requested leaves are not available.You already requested the available leaves.
+      </div>
+      <div id="message3">
+        Requested leaves are not available.
+      </div>
+      <div id="message4">
+        Select proper dates.
+      </div>
+
       <input type="button" id="applybutton" value="Apply" disabled>
 
     </form>
@@ -83,56 +57,273 @@ display:none;
   </div>
 
 
-  <div class="leavepage" id="ddd">
+  <div class="leavepage" id="leavepage">
 
 
-    <button type="button">LIST OF HOLIDAYS</button>
-    <button type="button">OPTIONAL HOLIDAY</button>
-    <button type="button" id="apply">APPLY</button>
-    <p id="today">Your Leave Balance as of</p>
-    <p>pending requests(<span id="demo"></span>)</p>
-	<div id="requestmessage">
-      <p>Message*</p>
-      <textarea name="message" rows="5" cols="60">Your Request Accepted</textarea><br>
-	  </div>
+    <div id="alignment">
+	  <button type="button" id="leavehistory">LEAVE HISTORY</button>
+      <button type="button" id="holidaylist">LIST OF HOLIDAYS</button>
+      <button type="button" id="optionallist">OPTIONAL HOLIDAY</button>
+      <button type="button" id="apply">APPLY</button>
+    </div>
+    <p id="today">Your Leave Balance as in</p>
+
+    <p id="pending">Pending Requests(<span id="demo">0</span>)</p>
+
     <div class="container">
-      <div class="item item11">
-        <p>Casual/Sick Leave</p>
-        <p><span id="Casual_SickLeave">4&emsp;&emsp;&emsp;</span>Currently Available</p>
-        <hr style="width:80%">
-        <p><span >4&emsp;&emsp;&emsp;</span>Accrued so far this year</p>
-        <p><span>0&emsp;&emsp;&emsp;</span>Credited from last year</p>
-        <p><span>12&emsp;&emsp;&emsp;</span>Annual Allotment</p>
+      <div class="item1">
+        <p class="header"><b>Casual/Sick Leave</b></p>
+        <div class="align">         
+          <p>Currently Available</p>
+		  <div>
+		  <p>:</p>
+		  <p id="CasualSickLeave"  class="space"></p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Accrued so far this year</p>
+		  <div>
+		  <p >:</p>
+		  <p class="space" id="casual"></p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Credited from last year</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">0</p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Annual Allotment</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">12</p>
+		  </div>
+        </div>
+        
       </div>
-      <div class="item item22">
-        <p>Earned Leave</p>
-        <p><span id="EarnedLeave">4&emsp;&emsp;&emsp;</span>Currently Available</p>
-        <hr style="width:80%">
-        <p><span>4&emsp;&emsp;&emsp;</span>Accrued so far this year</p>
-        <p><span>0&emsp;&emsp;&emsp;</span>Credited from last year</p>
-        <p><span>12&emsp;&emsp;&emsp;</span>Annual Allotment</p>
+      <div class="item1">
+        <p class="header"><b>Earned Leave</b></p>
+        <div class="align">         
+          <p>Currently Available</p>
+		  <div>
+		  <p>:</p>
+		  <p id="EarnedLeave"  class="space"></p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Accrued so far this year</p>
+		  <div>
+		  <p >:</p>
+		  <p class="space" id="earned"></p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Credited from last year</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">0</p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Annual Allotment</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">12</p>
+		  </div>
+        </div>
+        
       </div>
-      <div class="item item33">
-        <p>Optional Holiday</p>
-        <p><span id="OptionalHoliday">1&emsp;&emsp;&emsp;</span>Currently Available</p>
-        <hr style="width:80%">
-        <p><span>1&emsp;&emsp;&emsp;</span>Accrued so far this year</p>
-        <p><span>0&emsp;&emsp;&emsp;</span>Credited from last year</p>
-        <p><span>1&emsp;&emsp;&emsp;</span>Annual Allotment</p>
+      <div class="item1">
+        <p class="header"><b>Optional Holiday</b></p>
+        <div class="align">         
+          <p>Currently Available</p>
+		  <div>
+		  <p>:</p>
+		  <p id="OptionalHoliday"  class="space">1</p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Accrued so far this year</p>
+		  <div>
+		  <p >:</p>
+		  <p class="space">1</p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Credited from last year</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">0</p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Annual Allotment</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">1</p>
+		  </div>
+        </div>
+        
       </div>
-      <div class="item item44">
-        <p>Unpaid</p>
-        <p><span>0&emsp;&emsp;&emsp;</span>Already Taken</p>
-        <p><span>0&emsp;&emsp;&emsp;</span>Applied</p>
-        <p><span>0&emsp;&emsp;&emsp;</span>System Deducted</p>
+	  <div class="item1">
+        <p class="header"><b>Bereavement Leave</b></p>
+        <div class="align">         
+          <p>Currently Available</p>
+		  <div>
+		  <p>:</p>
+		  <p id="BereavementLeave"  class="space"></p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Accrued so far this year</p>
+		  <div>
+		  <p >:</p>
+		  <p class="space" id="bereav"></p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Credited from last year</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">0</p>
+		  </div>
+        </div>
+        <div class="align">         
+          <p>Annual Allotment</p>
+		  <div>
+		  <p>:</p>
+		  <p class="space">12</p>
+		  </div>
+        </div>
+        
       </div>
-      <div class="item item55">
-        <p>Comp-Off</p>
-        <p><span id="CompensatoryOff">1&emsp;&emsp;&emsp;</span>available</p>
-      </div>
+      
+      
     </div>
 
   </div>
-  </body>
+  <div class="notificationpage" id="notification">
 
+    <div id="notificationclose" class="noteclose">+</div>
+
+    <p>NOTIFICATIONS</p>
+  </div>
+  <div id="tables" class="tables">
+    <div id="holidayclose" class="holidayclose">+</div>
+    <table style="width:100%" id="t01">
+      <caption>List of Holidays 2021</caption>
+      <tr>
+        <th>S.no</th>
+        <th>Occasion/FestivalDateDay</th>
+        <th>DateDay</th>
+        <th>Day</th>
+
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>New Year's Day</td>
+        <td>1st January 2021</td>
+        <td>Friday</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Sankranti/ Pongal</td>
+        <td>14th January 2021</td>
+        <td>Thursday</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Republic Day</td>
+        <td>26th January 2021 (National Holiday)</td>
+        <td>Tuesday</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Holi</td>
+        <td>29th March 2021 (Optional Holiday)</td>
+        <td>Monday</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Good Friday</td>
+        <td>2nd April 2021</td>
+        <td>Friday</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Ugadi</td>
+        <td>13th April 2021</td>
+        <td>Tuesday</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Rama Navami</td>
+        <td>21st April 2021 (Optional Holiday)</td>
+        <td>Wednesday</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Idul Fitr</td>
+        <td>14th May 2021</td>
+        <td>Friday</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Telangana Formation Day</td>
+        <td>2nd June 2021 (Optional Holiday)</td>
+        <td>Wednesday</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Bakrid</td>
+        <td>20th July 2021 (Optional Holiday)</td>
+        <td>Tuesday</td>
+      </tr>
+    </table>
+  </div>
+  <div id="optionaltable" class="optionaltable">
+    <div id="optionalclose" class="optionalclose">+</div>
+    <table style="width:100%" id="t02">
+      <caption>Optional Holiday List</caption>
+      <tr>
+        <th>S.no</th>
+        <th>Occasion/Festival</th>
+        <th>Date</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Holi</td>
+        <td>29th March 2021</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Rama Navami</td>
+        <td>21st April 2021</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Telangana Formation Day</td>
+        <td>2nd June 2021</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Bakrid</td>
+        <td>20th July 2021</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Janmashtam</td>
+        <td>30th August 2021</td>
+    </table>
+  </div>
+  
+
+</body>
+ <div class="historypage" id="history">
+        <div id="historyclose" class="historyclose">+</div>
+		<p>LEAVE HISTORY</p>
+		<div id="table"></div>
+    </div>
 </html>

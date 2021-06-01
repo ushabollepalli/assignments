@@ -1,71 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script defer src="admin.js"></script> 
-<style>
-.notificationpage {
-      border: 2px solid green;
-      padding: 10px;
-      position: absolute;
-      display:none;
-      left: 100px;
-      top: 20px;
-      background-color: white;
-    }
-.mainscreen {
-     background-color: white;
-    }
-.acceptscreen {
-      border: 2px solid green;
-      padding: 10px;
-      position: absolute;
-      display:none;
-      left: 100px;
-      top: 20px;
-      background-color: white;
-    }	
-	.acceptclose {
-color: black;
-position: absolute;
-top: 0;
-right: 10px;
-font-size: 28px;
-transform: rotate(45deg);
-cursor: pointer;
-font-weight: bolder;
-}
-.noteclose {
-color: black;
-position: absolute;
-top: 0;
-right: 10px;
-font-size: 28px;
-transform: rotate(45deg);
-cursor: pointer;
-font-weight: bolder;
-}
+    <link rel="stylesheet" href="admin.css">
+    <script defer src="admin.js"></script>
 
-</style>
 </head>
+
 <body>
-<div class="mainscreen" id="mainpage">
-<button type="button" id="screenbutton">Click</button>
+<nav class="navbar">
+    <div>
+      <img class="icon" src="logo.jpg">
+    </div>
+    
+  </nav>
+    <div class="card" id="card">
+  <img src="avtar.png" alt="Avatar">
+  <div class="container">
+    <h4><b>Usha Bollepalli</b></h4> 
+    <p>Trainee Software Engineer</p> 
+  </div>
+  <div class="mainscreen" id="mainpage">
+        <button type="button" id="screenbutton">REQUESTS</button>
+    </div>
+  
 </div>
 
-<div class="notificationpage" id="notification">
-<div id="notificationclose" class="noteclose">+</div>
-<p>NOTIFICATIONS</p>
-</div>
-<div class="acceptscreen" id="acceptpage">
-<div id="acceptclose" class="acceptclose">+</div>
-<p id="accept">ACCEPT</p>
-<p id="delete">DELETE</p>
-</div>
+    <div class="notificationpage" id="notification">
+        <div id="notificationclose" class="noteclose">+</div>
+        <p>REQUESTS</p>
+		<div class="acceptscreen" id="acceptpage">
+        <p id="accept">ACCEPT</p>
+        <p id="delete">DELETE</p>
+    </div>
+    </div>
+    
 </body>
+
 </html>
-
-
-
-
-	
-	
